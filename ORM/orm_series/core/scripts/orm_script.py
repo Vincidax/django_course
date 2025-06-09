@@ -10,10 +10,7 @@ def run():
    user = User.objects.first()
    restaurant = Restaurant.objects.first()
 
-   print(Rating.objects.get_or_create(
-      restaurant=restaurant,
-      user=user,
-      rating=4
-   ))
+   rating = Rating(user=user, restaurant=restaurant, rating=9)
 
-   pprint(connection.queries)
+   rating.full_clean()
+   rating.save()
