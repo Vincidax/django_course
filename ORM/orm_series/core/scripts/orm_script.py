@@ -7,10 +7,12 @@ from pprint import pprint
 
 def run():
     
-   user = User.objects.first()
-   restaurant = Restaurant.objects.first()
-
-   rating = Rating(user=user, restaurant=restaurant, rating=9)
-
-   rating.full_clean()
-   rating.save()
+    restaurant = Restaurant()
+    restaurant.name = "My Italian Restaurant #2"
+    restaurant.date_opened = timezone.now()
+    restaurant.restaurant_type = Restaurant.TypeChoices.ITALIAN
+    restaurant.latitude = 50.2
+    restaurant.longitude =  50.5
+    restaurant.save()
+   
+    print(connection.queries)

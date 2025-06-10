@@ -28,6 +28,10 @@ class Restaurant(models.Model):
     longitude = models.FloatField(validators=[MinValueValidator(-180), MaxValueValidator(+180)])
     restaurant_type = models.CharField(max_length=2, choices=TypeChoices.choices)
 
+    def save(self, *args, **kwargs):
+        print(self._state.adding)
+        super().save(*args, **kwargs)
+    
     def __str__(self):
         return self.name
 

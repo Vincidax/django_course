@@ -42,4 +42,11 @@ button:hover{
 }
 
 /* Form styling */
-form
+
+form{
+    max-width: 400px;
+    margin: 0 auto;
+    border: 1px solid #fff;
+    border-radius: ;
+
+}
